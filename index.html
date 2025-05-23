@@ -1,1 +1,425 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vijay Shukla - DevOps SRE Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2A9D8F;
+            --secondary-color: #264653;
+            --accent-color: #E9C46A;
+            --dark-color: #1d3557;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--dark-color) 100%);
+            color: white;
+            padding: 4rem 0;
+            border-bottom: 4px solid var(--primary-color);
+        }
+        
+        .skill-badge {
+            background-color: var(--primary-color);
+            color: white;
+            margin: 0.2rem;
+            font-weight: 500;
+        }
+        
+        .section-title {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        .project-card {
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--primary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            border: 3px solid var(--primary-color);
+        }
+        
+        .tech-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+        
+        .contact-info {
+            background-color: white;
+            border-radius: 5px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-category h5 {
+            color: var(--dark-color);
+            margin-bottom: 0.8rem;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 mb-3">VIJAY NATH SHUKLA</h1>
+            <h3 class="mb-4">DevOps Engineer & SRE</h3>
+            <p class="lead mb-4">1.5+ Years of Experience in DevOps Automation & Cloud Infrastructure</p>
+            <div class="d-flex justify-content-center gap-3 mb-4">
+                <a href="https://in.linkedin.com/in/vijay-shukla-108745223" class="text-white"><i class="fab fa-linkedin fa-2x"></i></a>
+                <a href="mailto:vijayshukla8416@gmail.com" class="text-white"><i class="fas fa-envelope fa-2x"></i></a>
+            </div>
+            <div class="contact-info d-inline-block">
+                <p class="mb-1"><i class="fas fa-phone-alt me-2"></i> (+91)-8382957938</p>
+                <p class="mb-0"><i class="fas fa-envelope me-2"></i> vijayshukla8416@gmail.com</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-5">
+        <!-- Professional Summary -->
+        <section class="mb-5">
+            <h2 class="section-title"><i class="fas fa-user-tie tech-icon"></i>Professional Summary</h2>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>A highly skilled and results-driven professional with over 1.5+ years of experience in the IT industry, specializing as a DevOps Engineer. Demonstrated expertise in supporting, automating, and optimizing mission-critical deployments on production servers and in the cloud. Proficient in building, deploying, and managing source code, while leveraging configuration management, CI/CD processes, and DevOps automation to enhance operational efficiency.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="mb-5">
+            <h2 class="section-title"><i class="fas fa-tools tech-icon"></i>Technical Skills</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="skill-category">
+                        <h5><i class="fas fa-code-branch me-2"></i>CI/CD Tools</h5>
+                        <div class="d-flex flex-wrap">
+                            <span class="skill-badge badge rounded-pill">Jenkins</span>
+                            <span class="skill-badge badge rounded-pill">ArgoCD</span>
+                            <span class="skill-badge badge rounded-pill">GitHub Actions</span>
+                            <span class="skill-badge badge rounded-pill">Rundeck</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h5><i class="fas fa-cubes me-2"></i>Containerization & Orchestration</h5>
+                        <div class="d-flex flex-wrap">
+                            <span class="skill-badge badge rounded-pill">Docker</span>
+                            <span class="skill-badge badge rounded-pill">Kubernetes</span>
+                            <span class="skill-badge badge rounded-pill">Docker Swarm</span>
+                            <span class="skill-badge badge rounded-pill">AWS ECS/EKS</span>
+                            <span class="skill-badge badge rounded-pill">Docker Compose</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h5><i class="fas fa-cloud me-2"></i>Cloud Platforms</h5>
+                        <div class="d-flex flex-wrap">
+                            <span class="skill-badge badge rounded-pill">AWS</span>
+                            <span class="skill-badge badge rounded-pill">GCP</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="skill-category">
+                        <h5><i class="fas fa-code me-2"></i>Build Tools</h5>
+                        <div class="d-flex flex-wrap">
+                            <span class="skill-badge badge rounded-pill">Maven</span>
+                            <span class="skill-badge badge rounded-pill">Gradle</span>
+                            <span class="skill-badge badge rounded-pill">Fastlane Appstore</span>
+                            <span class="skill-badge badge rounded-pill">NodeJS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h5><i class="fas fa-shield-alt me-2"></i>Security Tools</h5>
+                        <div class="d-flex flex-wrap">
+                            <span class="skill-badge badge rounded-pill">BurpSuite</span>
+                            <span class="skill-badge badge rounded-pill">Trivy</span>
+                            <span class="skill-badge badge rounded-pill">OWASP Zap</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h5><i class="fas fa-server me-2"></i>Infrastructure & Other Tools</h5>
+                        <div class="d-flex flex-wrap">
+                            <span class="skill-badge badge rounded-pill">Terraform</span>
+                            <span class="skill-badge badge rounded-pill">Git/GitHub</span>
+                            <span class="skill-badge badge rounded-pill">JIRA</span>
+                            <span class="skill-badge badge rounded-pill">Grafana</span>
+                            <span class="skill-badge badge rounded-pill">Prometheus</span>
+                            <span class="skill-badge badge rounded-pill">ELK Stack</span>
+                            <span class="skill-badge badge rounded-pill">Loki</span>
+                            <span class="skill-badge badge rounded-pill">Velero</span>
+                            <span class="skill-badge badge rounded-pill">Helm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Experience -->
+        <section class="mb-5">
+            <h2 class="section-title"><i class="fas fa-briefcase tech-icon"></i>Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="card project-card">
+                        <div class="card-body">
+                            <h4 class="card-title">DevOps Engineer</h4>
+                            <h5 class="text-muted">ThinkSys Software Private Limited</h5>
+                            <h6 class="text-primary mb-3">July 2023 - Present</h6>
+                            <ul>
+                                <li>AWS infrastructure management and optimization</li>
+                                <li>Created continuous integration & continuous deployment pipelines from scratch</li>
+                                <li>Developed Docker files and managed docker images for various applications</li>
+                                <li>Integrated various tools across CI/CD stages such as Git as per requirements</li>
+                                <li>Used Maven for building applications and managing dependencies</li>
+                                <li>Performed security checks for vulnerabilities on source code using OWASP Dependency checks</li>
+                                <li>Created CI/CD Pipelines in AWS DevOps for various projects</li>
+                                <li>Utilized Python scripting for various automation tasks</li>
+                                <li>Implemented Infrastructure as Code using Terraform for provisioning and resource creation</li>
+                                <li>Setup Centralised Monitoring System from scratch, including various tools and metrics backup utility with alerting</li>
+                                <li>Developed a GoogleChat Bot to trigger deployment from chat interface</li>
+                                <li>Deployed a ReactApp utilizing node.js as backend and mysql as database in a dockerized environment</li>
+                            </ul>
+                            <div class="mt-3">
+                                <span class="badge bg-secondary">Docker</span>
+                                <span class="badge bg-secondary">Kubernetes</span>
+                                <span class="badge bg-secondary">Terraform</span>
+                                <span class="badge bg-secondary">AWS</span>
+                                <span class="badge bg-secondary">GCP</span>
+                                <span class="badge bg-secondary">Rundeck</span>
+                                <span class="badge bg-secondary">Jenkins</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="mb-5">
+            <h2 class="section-title"><i class="fas fa-code-branch tech-icon"></i>Projects</h2>
+            <div class="row">
+                <!-- Project 1 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 project-card">
+                        <div class="card-body">
+                            <h4 class="card-title">Deployment Automation ChatBot</h4>
+                            <h6 class="text-muted mb-3">ThinkSys (Training Period)</h6>
+                            <div class="d-flex flex-wrap mb-3">
+                                <span class="badge bg-primary me-2 mb-2">Rundeck</span>
+                                <span class="badge bg-primary me-2 mb-2">Google Cloud</span>
+                                <span class="badge bg-primary me-2 mb-2">Google App Script</span>
+                            </div>
+                            <h6>Responsibilities:</h6>
+                            <ul>
+                                <li>Added Authorization for slash commands</li>
+                                <li>Updated Script according to need for various jobs</li>
+                                <li>Modified Accessibility Functionalities for particular users</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 project-card">
+                        <div class="card-body">
+                            <h4 class="card-title">ComplianceSafe</h4>
+                            <h6 class="text-muted mb-3">ThinkSys</h6>
+                            <div class="d-flex flex-wrap mb-3">
+                                <span class="badge bg-primary me-2 mb-2">AWS</span>
+                                <span class="badge bg-primary me-2 mb-2">Terraform</span>
+                                <span class="badge bg-primary me-2 mb-2">Ansible</span>
+                            </div>
+                            <h6>Responsibilities:</h6>
+                            <ul>
+                                <li>Setup Infra monitoring using Terraform and Ansible</li>
+                                <li>Implemented Grafana, Prometheus, Cloudtrail & Cloudwatch using AWS Lambda</li>
+                                <li>Configured Cost Alerts, Security Group change alerts etc.</li>
+                                <li>Developed OnTheGo GoogleChat /slash commands</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 project-card">
+                        <div class="card-body">
+                            <h4 class="card-title">RhythmScience360</h4>
+                            <h6 class="text-muted mb-3">ThinkSys</h6>
+                            <div class="d-flex flex-wrap mb-3">
+                                <span class="badge bg-primary me-2 mb-2">AWS</span>
+                                <span class="badge bg-primary me-2 mb-2">Docker Swarm</span>
+                                <span class="badge bg-primary me-2 mb-2">Github Action</span>
+                                <span class="badge bg-primary me-2 mb-2">Sentry</span>
+                                <span class="badge bg-primary me-2 mb-2">Vanta</span>
+                            </div>
+                            <h6>Responsibilities:</h6>
+                            <ul>
+                                <li>Worked on Adhoc tasks on a day-to-day basis and Troubleshooting issues</li>
+                                <li>Implemented various automations with Python Scripting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 project-card">
+                        <div class="card-body">
+                            <h4 class="card-title">RoverTown</h4>
+                            <h6 class="text-muted mb-3">ThinkSys</h6>
+                            <div class="d-flex flex-wrap mb-3">
+                                <span class="badge bg-primary me-2 mb-2">XCode</span>
+                                <span class="badge bg-primary me-2 mb-2">Fastlane</span>
+                                <span class="badge bg-primary me-2 mb-2">Github Action</span>
+                            </div>
+                            <h6>Responsibilities:</h6>
+                            <ul>
+                                <li>Deployed a Full Scale Fastlane Automation for 50+ Apple Apps to AppStore using Github Action Pipeline only</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications & Education -->
+        <section class="mb-5">
+            <h2 class="section-title"><i class="fas fa-certificate tech-icon"></i>Certifications & Education</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title"><i class="fas fa-award me-2"></i>Certifications</h4>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <h6>IBM Cybersecurity Analyst Professional Certificate</h6>
+                                </li>
+                            </ul>
+                            
+                            <h4 class="card-title mt-4"><i class="fas fa-trophy me-2"></i>Achievements</h4>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    Provided Basic to Intermediate level Training on Kubernetes to Fellow Colleagues
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title"><i class="fas fa-graduation-cap me-2"></i>Education</h4>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <h6>B.Tech - Computer Science & Engineering</h6>
+                                    <p class="mb-1">Noida Institute Of Engineering & Technology, Greater Noida (U.P.)</p>
+                                    <small class="text-muted">Aug 2019 – June 2024</small>
+                                </li>
+                                <li class="list-group-item">
+                                    <h6>12th Standard</h6>
+                                    <p class="mb-1">Saraswati Shishu Mandir Sr. Sec. School (CBSE Board)</p>
+                                    <small class="text-muted">2018</small>
+                                </li>
+                                <li class="list-group-item">
+                                    <h6>10th Standard</h6>
+                                    <p class="mb-1">Saraswati Shishu Mandir Sr. Sec. School (CBSE Board)</p>
+                                    <small class="text-muted">2016</small>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center">
+        <div class="container">
+            <h4>Vijay Nath Shukla</h4>
+            <p>DevOps Engineer | Cloud Specialist | Automation Expert</p>
+            <div class="d-flex justify-content-center gap-3 mb-3">
+                <a href="https://in.linkedin.com/in/vijay-shukla-108745223" class="text-white"><i class="fab fa-linkedin fa-2x"></i></a>
+                <a href="mailto:vijayshukla8416@gmail.com" class="text-white"><i class="fas fa-envelope fa-2x"></i></a>
+            </div>
+            <p class="mb-0">Phone: (+91)-8382957938</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
