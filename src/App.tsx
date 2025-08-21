@@ -266,11 +266,15 @@ const About = () => (
       </div>
       <div>
         <div className="rounded-3xl overflow-hidden border border-zinc-800 bg-zinc-900/60">
-          <img src={CONFIG.workshopImg} alt="Workshop Kubernetes" className="w-full h-56 object-cover" />
-          <div className="p-4 text-sm text-zinc-400">
-            Kubernetes workshop to colleagues — knowledge sharing is part of the job.
-          </div>
+          <img
+            src={CONFIG.workshopImg}
+            alt="Workshop Kubernetes"
+            className="w-full max-h-72 object-contain object-top"
+          />
+        <div className="p-4 text-sm text-zinc-400">
+          Kubernetes workshop to colleagues — knowledge sharing is part of the job.
         </div>
+</div>
       </div>
     </div>
   </section>
