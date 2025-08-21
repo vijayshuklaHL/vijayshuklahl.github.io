@@ -4,12 +4,14 @@ import {
   ArrowRight,
   Github,
   Linkedin,
+  MessageCircle,
   Mail,
   Cpu,
   Shield,
   Boxes,
   ServerCog,
   KeyRound,
+  Download,
   LineChart as IconLineChart,
 } from "lucide-react";
 import {
@@ -26,6 +28,7 @@ const CONFIG = {
   github: "https://github.com/vijayshuklaHL",
   linkedin: "https://in.linkedin.com/in/vijay-shukla-108745223",
   email: "mailto:vijayshukla-ops@gmail.com",
+  whatsapp: "https://wa.me/+918416992273",
   profileImg: "/images/profile.jpg",
   workshopImg: "/images/workshop.jpg",
 };
@@ -133,7 +136,9 @@ const NavBar = () => (
       <div className="flex items-center gap-3">
         <a href={CONFIG.github} aria-label="GitHub" className="p-2 rounded-xl hover:bg-zinc-800"><Github className="h-5 w-5" /></a>
         <a href={CONFIG.linkedin} aria-label="LinkedIn" className="p-2 rounded-xl hover:bg-zinc-800"><Linkedin className="h-5 w-5" /></a>
+        <a href={CONFIG.whatsapp}   target="_blank"   rel="noopener noreferrer"   aria-label="WhatsApp"   className="p-2 rounded-xl hover:bg-zinc-800" >   <MessageCircle className="h-5 w-5 text-green-500" /> </a> 
         <PillButton href="#contact">Hire Me <ArrowRight className="h-4 w-4" /></PillButton>
+        <PillButton href="/Vijay_Shukla_Resume.pdf">   Download Resume <Download className="h-4 w-4" /> </PillButton> 
       </div>
     </div>
   </div>
@@ -310,7 +315,7 @@ const projects: Project[] = [
     impact: "Higher reliability and DR readiness with better observability.",
     tags: ["EKS", "Velero", "Prometheus", "Alertmanager", "GitLab CI"],
     href: "#case-eks",
-    image: "/images/projects/eks-dr.png",
+    image: "/images/projects/eks-dr.gif",
     alt: "Grafana/EKS visual with Velero backups",
   },
   {
@@ -344,7 +349,7 @@ const projects: Project[] = [
     alt: "AWS Backup console with successful jobs",
   },
   {
-    title: "Multi-Cluster Vault Authentication for K8s",
+    title: "Multi-Cluster K8s Secret Management with Vault",
     challenge: "Secret sprawl and inconsistent auth across clusters.",
     solution: "Vault with multi-cluster auth, JWT/Kubernetes methods, standardized secret engines.",
     impact: "Simplified secrets mgmt; audit-friendly; safer deploys.",
@@ -476,7 +481,7 @@ const SkillsMetrics = () => {
   return (
     <section id="skills-metrics" className="py-20 bg-zinc-950">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-        <SectionHeader kicker="Proof" title="Skills • Grafana-style Gauges" subtitle="Strength Score & live-style KPIs (demo)." />
+        <SectionHeader kicker="Proof" title="Skills" subtitle="Strength Score & live-style KPIs (demo)." />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.map((s) => (<GaugeCard key={s.name} name={s.name} value={s.value} />))}
         </div>
@@ -502,7 +507,7 @@ const SkillsMetrics = () => {
 const Showcase = () => (
   <section id="showcase" className="py-20 bg-zinc-950">
     <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-      <SectionHeader kicker="Proof" title="Interactive Showcase" subtitle="Plug sanitized screenshots or live embeds of Grafana, ArgoCD, and pipeline runs." />
+      <SectionHeader kicker="Proof" title="Showcase" />
       <div className="grid md:grid-cols-3 gap-6">
         {["Grafana Dashboard", "ArgoCD Sync", "GitHub Actions Run"].map((t) => (
           <div key={t} className="rounded-3xl bg-zinc-900/60 border border-zinc-800 p-5">
@@ -541,25 +546,81 @@ const Blog = () => (
 );
 
 // ---------- Testimonials + Awards/Certs ----------
+// const Testimonials = () => (
+//   <section className="py-20 bg-zinc-950">
+//     <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+//       <SectionHeader kicker="What People Say" title="Testimonials" />
+//       <div className="grid md:grid-cols-3 gap-6">
+//         {[
+//           { quote: "Vijay automated our pipeline, reducing release cycles by 70%.", author: "Engineering Manager" },
+//           { quote: "Thanks to his monitoring stack, we never miss downtime alerts.", author: "CTO" },
+//           { quote: "Rock-solid, security-first approach to infrastructure.", author: "Head of Platform" },
+//         ].map((t, i) => (
+//           <div key={i} className="rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6">
+//             <p className="text-zinc-200">“{t.quote}”</p>
+//             <p className="mt-4 text-zinc-400 text-sm">— {t.author}</p>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   </section>
+// );
+// ---------- Testimonials ----------
 const Testimonials = () => (
   <section className="py-20 bg-zinc-950">
     <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
       <SectionHeader kicker="What People Say" title="Testimonials" />
+
       <div className="grid md:grid-cols-3 gap-6">
+        {/* Native testimonials */}
         {[
-          { quote: "Vijay automated our pipeline, reducing release cycles by 70%.", author: "Engineering Manager" },
-          { quote: "Thanks to his monitoring stack, we never miss downtime alerts.", author: "CTO" },
-          { quote: "Rock-solid, security-first approach to infrastructure.", author: "Head of Platform" },
+          {
+            quote:
+              "Hyperion automated our pipeline, reducing release cycles by 70%.",
+            author: "Engineering Manager",
+          },
+          {
+            quote:
+              "Thanks to his monitoring stack, we never miss downtime alerts.",
+            author: "CTO",
+          },
         ].map((t, i) => (
-          <div key={i} className="rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6">
+          <div
+            key={i}
+            className="rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6 hover:border-zinc-700 hover:bg-zinc-900/80 transition"
+          >
             <p className="text-zinc-200">“{t.quote}”</p>
             <p className="mt-4 text-zinc-400 text-sm">— {t.author}</p>
           </div>
         ))}
+
+        {/* LinkedIn testimonial card */}
+        <div className="rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6 hover:border-zinc-700 hover:bg-zinc-900/80 transition">
+          <a
+            href="https://www.linkedin.com/posts/abhishek-sinha-53a3aa160_dont-know-if-its-even-legal-recently-activity-7364214351962009600-Rjj1?utm_source=share&utm_medium=member_android&rcm=ACoAADgsKlgBaJpuJGJra0UVSFys5jcP7EwPiYM"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block"
+          >
+            {/* Screenshot preview of LinkedIn post (save screenshot as /images/linkedin-testimonial.png) */}
+            <img
+              src="/images/linkedin-testimonial.png"
+              alt="LinkedIn testimonial preview"
+              className="rounded-xl mb-3 border border-zinc-800"
+            />
+            <p className="text-zinc-300 text-sm mb-2">
+              Read the full recommendation on LinkedIn →
+            </p>
+            <span className="inline-flex items-center gap-2 text-teal-300 hover:text-teal-200 text-sm font-medium">
+              <Linkedin className="h-4 w-4" /> View on LinkedIn
+            </span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 );
+
 
 const AwardsCerts = () => (
   <section className="py-16 bg-zinc-950/95 border-t border-zinc-800">
