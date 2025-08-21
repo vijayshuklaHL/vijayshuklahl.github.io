@@ -121,7 +121,7 @@ const NavBar = () => (
     <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="#home" className="flex items-center gap-2">
         <div className="h-8 w-8 rounded-xl bg-gradient-to-br from-teal-400 to-emerald-500 shadow-lg" />
-        <span className="font-semibold tracking-tight text-white">Hyperion</span>
+        <span className="font-semibold tracking-tight text-white">Vijay Shukla - DevOps</span>
       </a>
       <nav className="hidden md:flex items-center gap-8 text-zinc-300">
         <a href="#projects" className="hover:text-white">Projects</a>
@@ -174,7 +174,7 @@ const Hero = () => (
           {/* Central avatar */}
           <img
             src={CONFIG.profileImg}
-            alt="Hyperion profile"
+            alt="Vijay Shukla profile"
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-40 w-40 md:h-52 md:w-52 rounded-full object-cover ring-2 ring-teal-400/60 border border-zinc-800 shadow-xl z-20"
           />
 
@@ -543,7 +543,7 @@ const Testimonials = () => (
       <SectionHeader kicker="What People Say" title="Testimonials" />
       <div className="grid md:grid-cols-3 gap-6">
         {[
-          { quote: "Hyperion automated our pipeline, reducing release cycles by 70%.", author: "Engineering Manager" },
+          { quote: "Vijay automated our pipeline, reducing release cycles by 70%.", author: "Engineering Manager" },
           { quote: "Thanks to his monitoring stack, we never miss downtime alerts.", author: "CTO" },
           { quote: "Rock-solid, security-first approach to infrastructure.", author: "Head of Platform" },
         ].map((t, i) => (
