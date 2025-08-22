@@ -121,12 +121,9 @@ const PillButton = ({
 // ---------- Navigation ----------
 const NavBar = () => (
   <div className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-zinc-900/60 bg-zinc-900/80 border-b border-zinc-800">
-    <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="#home" className="flex items-center gap-2">
-        <div className="h-8 w-8 rounded-xl bg-gradient-to-br from-teal-400 to-emerald-500 shadow-lg" />
-        <span className="font-semibold tracking-tight text-white">Vijay Shukla - DevOps</span>
-      </a>
-      <nav className="hidden md:flex items-center gap-8 text-zinc-300">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <a href="#home" className="font-semibold tracking-tight text-white">Vijay Shukla - DevOps</a>
+        <nav className="hidden md:flex items-center gap-8 text-zinc-300">
         <a href="#projects" className="hover:text-white">Projects</a>
         <a href="#skills" className="hover:text-white">Skills</a>
         <a href="#showcase" className="hover:text-white">Showcase</a>
@@ -425,16 +422,21 @@ const Skills = () => (
           { name: "Observability", items: ["Prometheus", "Grafana", "Loki", "Promtail", "CloudWatch", "Alertmanager"] },
           { name: "Security & DevSecOps", items: ["Vault", "KMS", "RBAC", "IAM Policies", "CIS Basics"] },
         ].map((col) => (
-          <div key={col.name} className="rounded-3xl bg-zinc-900/60 border border-zinc-800 p-6">
-            <h4 className="text-white font-medium mb-3">{col.name}</h4>
-            <ul className="space-y-2 text-zinc-300 text-sm">
-              {col.items.map((it) => (
-                <li key={it} className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-teal-400/90" />
-                  {it}
-                </li>
-              ))}
-            </ul>
+          <div key={col.name} className="group relative rounded-3xl bg-zinc-900/60 border border-zinc-800 p-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] overflow-hidden">
+            {/* Shine effect */}
+            <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
+
+            <div className="relative z-10">
+              <h4 className="text-white font-medium mb-3">{col.name}</h4>
+              <ul className="space-y-2 text-zinc-300 text-sm">
+                {col.items.map((it) => (
+                  <li key={it} className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-teal-400/90" />
+                    {it}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         ))}
       </div>
@@ -454,19 +456,26 @@ const SkillsMetrics = () => {
   ];
 
   const GaugeCard = ({ name, value }: { name: string; value: number }) => (
-    <div className="relative rounded-3xl bg-zinc-900/60 border border-zinc-800 p-5">
-      <div className="h-40">
-        <ResponsiveContainer width="100%" height="100%">
-          <RadialBarChart data={[{ name, value }]} innerRadius="70%" outerRadius="100%" startAngle={90} endAngle={-270}>
-            <PolarAngleAxis type="number" domain={[0, 100]} dataKey="value" tick={false} />
-            <RadialBar dataKey="value" cornerRadius={999} background={{ fill: "#27272a" }} fill="#14b8a6" />
-          </RadialBarChart>
-        </ResponsiveContainer>
-      </div>
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="text-center">
-          <p className="text-3xl font-bold text-white">{value}%</p>
-          <p className="text-xs uppercase tracking-widest text-zinc-400 mt-1">{name}</p>
+    <div className="group relative rounded-3xl bg-zinc-900/60 border border-zinc-800 p-5 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] overflow-hidden">
+      {/* Shine effect */}
+      <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
+
+      <div className="relative z-10">
+        <div className="h-32 relative">
+          <ResponsiveContainer width="100%" height="100%">
+            <RadialBarChart data={[{ name, value }]} innerRadius="60%" outerRadius="90%" startAngle={90} endAngle={-270}>
+              <PolarAngleAxis type="number" domain={[0, 100]} dataKey="value" tick={false} />
+              <RadialBar dataKey="value" cornerRadius={999} background={{ fill: "#27272a" }} fill="#14b8a6" />
+            </RadialBarChart>
+          </ResponsiveContainer>
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="text-center">
+              <p className="text-2xl font-bold text-white">{value}%</p>
+            </div>
+          </div>
+        </div>
+        <div className="text-center mt-3">
+          <p className="text-xs uppercase tracking-widest text-zinc-400">{name}</p>
         </div>
       </div>
     </div>
@@ -644,14 +653,76 @@ const AwardsCerts = () => (
   </section>
 );
 
+
+
 // ---------- Contact & Footer ----------
+// const Contact = () => (
+//   <section id="contact" className="py-20 bg-zinc-950/95 border-t border-zinc-800">
+//     <div className="max-w-3xl mx-auto px-4 md:px-6 lg:px-8 text-center">
+//       <SectionHeader kicker="Let’s Talk" title="Ready to scale your infrastructure with confidence?" subtitle="Tell me about your challenges. I’ll bring the automation, reliability, and speed." />
+//       <div className="flex flex-wrap items-center justify-center gap-3">
+//         <PillButton href={CONFIG.email}><Mail className="h-4 w-4" /> Email Me</PillButton>
+//       </div>
+//     </div>
+//   </section>
+// );
+
 const Contact = () => (
   <section id="contact" className="py-20 bg-zinc-950/95 border-t border-zinc-800">
-    <div className="max-w-3xl mx-auto px-4 md:px-6 lg:px-8 text-center">
+    <div className="max-w-5xl mx-auto px-4 md:px-6 lg:px-8 text-center">
       <SectionHeader kicker="Let’s Talk" title="Ready to scale your infrastructure with confidence?" subtitle="Tell me about your challenges. I’ll bring the automation, reliability, and speed." />
-      <div className="flex flex-wrap items-center justify-center gap-3">
-        <PillButton href={CONFIG.email}><Mail className="h-4 w-4" /> Email Me</PillButton>
-      </div>
+              <div className="flex flex-wrap items-center justify-center gap-3">
+          <PillButton href={CONFIG.email}><Mail className="h-4 w-4" /> Email Me</PillButton>
+          <a
+            href={CONFIG.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-2xl px-5 py-2.5 text-sm font-medium transition bg-teal-500/90 hover:bg-teal-400 text-zinc-900"
+          >
+            <MessageCircle className="h-4 w-4" /> WhatsApp Me
+          </a>
+        </div>
+
+             {/* Service Availability Cards */}
+       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+         {[
+           {
+             title: "Hourly Engagement",
+             subtitle: "(on-demand work)",
+             description: "Quick fixes, troubleshooting, and one-off tasks",
+             icon: "⚡"
+           },
+           {
+             title: "Retainer Packages",
+             subtitle: "(part-time weekly/monthly support)",
+             description: "Ongoing support and maintenance",
+             icon: "📅"
+           },
+           {
+             title: "Dedicated Engagement",
+             subtitle: "(full-time contract)",
+             description: "Complete DevOps ownership and management",
+             icon: "🎯"
+           },
+           {
+             title: "Project-Based Work",
+             subtitle: "(fixed scope)",
+             description: "Specific project deliverables and timelines",
+             icon: "🚀"
+           }
+         ].map((service, i) => (
+           <div key={i} className="group relative rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] overflow-hidden">
+             {/* Shine effect */}
+             <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
+             <div className="relative z-10 text-center">
+               <div className="text-3xl mb-3">{service.icon}</div>
+               <h3 className="text-lg font-semibold text-white mb-1">{service.title}</h3>
+               <p className="text-sm text-teal-400 mb-3">{service.subtitle}</p>
+               <p className="text-zinc-300 text-sm">{service.description}</p>
+             </div>
+           </div>
+         ))}
+       </div>
     </div>
   </section>
 );
@@ -684,6 +755,7 @@ export default function HyperionPortfolio() {
       <Blog />
       <Testimonials />
       <AwardsCerts />
+
       <Contact />
       <Footer />
     </div>
