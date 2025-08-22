@@ -127,7 +127,7 @@ const NavBar = () => (
         <a href="#projects" className="hover:text-white">Projects</a>
         <a href="#skills" className="hover:text-white">Skills</a>
         <a href="#showcase" className="hover:text-white">Showcase</a>
-        <a href="#blog" className="hover:text-white">Blog</a>
+        {/* <a href="#blog" className="hover:text-white">Blog</a> */}
         <a href="#contact" className="hover:text-white">Contact</a>
       </nav>
       <div className="flex items-center gap-3">
@@ -445,72 +445,72 @@ const Skills = () => (
 );
 
 // ---------- Skills Metrics (Grafana style) ----------
-const SkillsMetrics = () => {
-  const skills = [
-    { name: "Kubernetes", value: 92 },
-    { name: "GitHub Actions", value: 95 },
-    { name: "Prometheus/Grafana", value: 90 },
-    { name: "Vault", value: 86 },
-    { name: "Terraform", value: 88 },
-    { name: "AWS", value: 93 },
-  ];
+// const SkillsMetrics = () => {
+//   const skills = [
+//     { name: "Kubernetes", value: 92 },
+//     { name: "GitHub Actions", value: 95 },
+//     { name: "Prometheus/Grafana", value: 90 },
+//     { name: "Vault", value: 86 },
+//     { name: "Terraform", value: 88 },
+//     { name: "AWS", value: 93 },
+//   ];
 
-  const GaugeCard = ({ name, value }: { name: string; value: number }) => (
-    <div className="group relative rounded-3xl bg-zinc-900/60 border border-zinc-800 p-5 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] overflow-hidden">
-      {/* Shine effect */}
-      <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
+//   const GaugeCard = ({ name, value }: { name: string; value: number }) => (
+//     <div className="group relative rounded-3xl bg-zinc-900/60 border border-zinc-800 p-5 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] overflow-hidden">
+//       {/* Shine effect */}
+//       <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
 
-      <div className="relative z-10">
-        <div className="h-32 relative">
-          <ResponsiveContainer width="100%" height="100%">
-            <RadialBarChart data={[{ name, value }]} innerRadius="60%" outerRadius="90%" startAngle={90} endAngle={-270}>
-              <PolarAngleAxis type="number" domain={[0, 100]} dataKey="value" tick={false} />
-              <RadialBar dataKey="value" cornerRadius={999} background={{ fill: "#27272a" }} fill="#14b8a6" />
-            </RadialBarChart>
-          </ResponsiveContainer>
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="text-center">
-              <p className="text-2xl font-bold text-white">{value}%</p>
-            </div>
-          </div>
-        </div>
-        <div className="text-center mt-3">
-          <p className="text-xs uppercase tracking-widest text-zinc-400">{name}</p>
-        </div>
-      </div>
-    </div>
-  );
+//       <div className="relative z-10">
+//         <div className="h-32 relative">
+//           <ResponsiveContainer width="100%" height="100%">
+//             <RadialBarChart data={[{ name, value }]} innerRadius="60%" outerRadius="90%" startAngle={90} endAngle={-270}>
+//               <PolarAngleAxis type="number" domain={[0, 100]} dataKey="value" tick={false} />
+//               <RadialBar dataKey="value" cornerRadius={999} background={{ fill: "#27272a" }} fill="#14b8a6" />
+//             </RadialBarChart>
+//           </ResponsiveContainer>
+//           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+//             <div className="text-center">
+//               <p className="text-2xl font-bold text-white">{value}%</p>
+//             </div>
+//           </div>
+//         </div>
+//         <div className="text-center mt-3">
+//           <p className="text-xs uppercase tracking-widest text-zinc-400">{name}</p>
+//         </div>
+//       </div>
+//     </div>
+//   );
 
-  const kpis = [
-    { title: "Deploy Frequency (weekly)", value: "30", suffix: " /wk", data: [{x:1,y:12},{x:2,y:18},{x:3,y:22},{x:4,y:28},{x:5,y:30}] },
-    { title: "MTTR", value: "25", suffix: " min", data: [{x:1,y:40},{x:2,y:35},{x:3,y:28},{x:4,y:25},{x:5,y:22}] },
-    { title: "Alert Noise", value: "12", suffix: "%", data: [{x:1,y:20},{x:2,y:18},{x:3,y:16},{x:4,y:14},{x:5,y:12}] },
-  ];
+//   const kpis = [
+//     { title: "Deploy Frequency (weekly)", value: "30", suffix: " /wk", data: [{x:1,y:12},{x:2,y:18},{x:3,y:22},{x:4,y:28},{x:5,y:30}] },
+//     { title: "MTTR", value: "25", suffix: " min", data: [{x:1,y:40},{x:2,y:35},{x:3,y:28},{x:4,y:25},{x:5,y:22}] },
+//     { title: "Alert Noise", value: "12", suffix: "%", data: [{x:1,y:20},{x:2,y:18},{x:3,y:16},{x:4,y:14},{x:5,y:12}] },
+//   ];
 
-  return (
-    <section id="skills-metrics" className="py-20 bg-zinc-950">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-        <SectionHeader kicker="Proof" title="Skills" subtitle="Strength Score & live-style KPIs (demo)." />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skills.map((s) => (<GaugeCard key={s.name} name={s.name} value={s.value} />))}
-        </div>
-        <div className="mt-10 grid md:grid-cols-3 gap-6">
-          {kpis.map((kpi, i) => (
-            <div key={i} className="rounded-3xl bg-zinc-900/60 border border-zinc-800 p-5">
-              <div className="flex items-baseline gap-2"><p className="text-3xl font-bold text-white">{kpi.value}</p><span className="text-zinc-400">{kpi.suffix}</span></div>
-              <p className="text-sm text-zinc-400 mb-2">{kpi.title}</p>
-              <div className="h-24">
-                <ResponsiveContainer width="100%" height="100%">
-                  <ReLineChart data={kpi.data}><Line type="monotone" dataKey="y" dot={false} strokeWidth={2} /></ReLineChart>
-                </ResponsiveContainer>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+//   return (
+//     <section id="skills-metrics" className="py-20 bg-zinc-950">
+//       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+//         <SectionHeader kicker="Proof" title="Skills" subtitle="Strength Score & live-style KPIs (demo)." />
+//         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+//           {skills.map((s) => (<GaugeCard key={s.name} name={s.name} value={s.value} />))}
+//         </div>
+//         <div className="mt-10 grid md:grid-cols-3 gap-6">
+//           {kpis.map((kpi, i) => (
+//             <div key={i} className="rounded-3xl bg-zinc-900/60 border border-zinc-800 p-5">
+//               <div className="flex items-baseline gap-2"><p className="text-3xl font-bold text-white">{kpi.value}</p><span className="text-zinc-400">{kpi.suffix}</span></div>
+//               <p className="text-sm text-zinc-400 mb-2">{kpi.title}</p>
+//               <div className="h-24">
+//                 <ResponsiveContainer width="100%" height="100%">
+//                   <ReLineChart data={kpi.data}><Line type="monotone" dataKey="y" dot={false} strokeWidth={2} /></ReLineChart>
+//                 </ResponsiveContainer>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
 
 // ---------- Showcase ----------
 const Showcase = () => {
@@ -790,27 +790,27 @@ const Showcase = () => {
 };
 
 // ---------- Blog ----------
-const Blog = () => (
-  <section id="blog" className="py-20 bg-zinc-950/95 border-t border-zinc-800">
-    <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-      <SectionHeader kicker="Insights" title="From the War Room" subtitle="Deep dives into automation, reliability, and scaling." />
-      <div className="grid md:grid-cols-3 gap-6">
-        {[
-          { title: "Automating 50+ iOS Deployments with Fastlane + GitHub Actions", blurb: "How reusable workflows and lanes slashed release times." },
-          { title: "Centralized Monitoring That Actually Helps Ops", blurb: "SLOs, alert fatigue fixes, and dashboards that matter." },
-          { title: "Vault Across Clusters: A Practical Guide", blurb: "JWT auth, engines, and guardrails for teams." },
-        ].map((p, i) => (
-          <a key={i} href="#" className="group rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6 hover:border-zinc-700 hover:bg-zinc-900/80 transition">
-            <div className="h-32 rounded-2xl bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-800 mb-4" />
-            <h3 className="text-white font-semibold group-hover:text-teal-300">{p.title}</h3>
-            <p className="mt-2 text-zinc-400 text-sm">{p.blurb}</p>
-            <span className="mt-4 inline-flex items-center gap-2 text-teal-300/90 text-sm">Read post <ArrowRight className="h-4 w-4" /></span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-);
+// const Blog = () => (
+//   <section id="blog" className="py-20 bg-zinc-950/95 border-t border-zinc-800">
+//     <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+//       <SectionHeader kicker="Insights" title="From the War Room" subtitle="Deep dives into automation, reliability, and scaling." />
+//       <div className="grid md:grid-cols-3 gap-6">
+//         {[
+//           { title: "Automating 50+ iOS Deployments with Fastlane + GitHub Actions", blurb: "How reusable workflows and lanes slashed release times." },
+//           { title: "Centralized Monitoring That Actually Helps Ops", blurb: "SLOs, alert fatigue fixes, and dashboards that matter." },
+//           { title: "Vault Across Clusters: A Practical Guide", blurb: "JWT auth, engines, and guardrails for teams." },
+//         ].map((p, i) => (
+//           <a key={i} href="#" className="group rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6 hover:border-zinc-700 hover:bg-zinc-900/80 transition">
+//             <div className="h-32 rounded-2xl bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-800 mb-4" />
+//             <h3 className="text-white font-semibold group-hover:text-teal-300">{p.title}</h3>
+//             <p className="mt-2 text-zinc-400 text-sm">{p.blurb}</p>
+//             <span className="mt-4 inline-flex items-center gap-2 text-teal-300/90 text-sm">Read post <ArrowRight className="h-4 w-4" /></span>
+//           </a>
+//         ))}
+//       </div>
+//     </div>
+//   </section>
+// );
 
 // ---------- Testimonials + Awards/Certs ----------
 // const Testimonials = () => (
@@ -1008,9 +1008,9 @@ export default function HyperionPortfolio() {
       <About />
       <Projects />
       <Skills />
-      <SkillsMetrics />
+      {/* <SkillsMetrics /> */}
       <Showcase />
-      <Blog />
+      {/* <Blog /> */}
       <Testimonials />
       <AwardsCerts />
 
