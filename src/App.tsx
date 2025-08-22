@@ -149,6 +149,8 @@ const Hero = () => (
       <div className="max-w-2xl">
         <div className="flex flex-wrap gap-2 mb-6">
           <span className="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-xs">DevOps</span>
+          <span className="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-xs">DevSecOps</span>
+          <span className="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-xs">CI/CD</span>
           <span className="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-xs">Cloud</span>
           <span className="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-xs">Security</span>
           <span className="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-xs">Observability</span>
@@ -994,7 +996,9 @@ const Footer = () => (
         <span>•</span>
         <a href={CONFIG.linkedin} className="hover:text-white">LinkedIn</a>
         <span>•</span>
-        <a href="#blog" className="hover:text-white">Blog</a>
+        <a href={CONFIG.whatsapp} className="hover:text-white">WhatsApp</a>
+        {/* <span>•</span> */}
+        {/* <a href="#blog" className="hover:text-white">Blog</a> */}
       </div>
     </div>
   </footer>
