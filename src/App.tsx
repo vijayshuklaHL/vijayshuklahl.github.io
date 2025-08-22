@@ -135,7 +135,7 @@ const NavBar = () => (
         <a href={CONFIG.linkedin} aria-label="LinkedIn" className="p-2 rounded-xl hover:bg-zinc-800"><Linkedin className="h-5 w-5" /></a>
         <a href={CONFIG.whatsapp}   target="_blank"   rel="noopener noreferrer"   aria-label="WhatsApp"   className="p-2 rounded-xl hover:bg-zinc-800" >   <MessageCircle className="h-5 w-5 text-green-500" /> </a> 
         <PillButton href="#contact">Hire Me <ArrowRight className="h-4 w-4" /></PillButton>
-        <PillButton href="/Vijay_Shukla_Resume.pdf">   Download Resume <Download className="h-4 w-4" /> </PillButton> 
+        <PillButton href="../Vijay_Shukla_Resume.pdf">   Download Resume <Download className="h-4 w-4" /> </PillButton> 
       </div>
     </div>
   </div>
