@@ -513,23 +513,281 @@ const SkillsMetrics = () => {
 };
 
 // ---------- Showcase ----------
-const Showcase = () => (
-  <section id="showcase" className="py-20 bg-zinc-950">
-    <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-      <SectionHeader kicker="Proof" title="Showcase" />
-      <div className="grid md:grid-cols-3 gap-6">
-        {["Grafana Dashboard", "ArgoCD Sync", "GitHub Actions Run"].map((t) => (
-          <div key={t} className="rounded-3xl bg-zinc-900/60 border border-zinc-800 p-5">
-            <div className="h-44 rounded-2xl bg-zinc-800/70 border border-zinc-700 flex items-center justify-center text-zinc-400">
-              {t} (screenshot/gif)
-            </div>
-            <p className="mt-3 text-zinc-300 text-sm">Replace with real visuals that demonstrate reliability, speed, and clarity.</p>
+const Showcase = () => {
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  const [isPaused, setIsPaused] = React.useState(false);
+  
+  const showcaseItems = [
+    {
+      title: "Grafana Dashboard Excellence",
+      description: "Centralized monitoring with SLO-based alerting that reduced downtime by 40%",
+      image: "/images/showcase/grafana-dashboard.png",
+      alt: "Grafana dashboard showing system metrics and alerts",
+      icon: "📊"
+    },
+    {
+      title: "ArgoCD GitOps Pipeline",
+      description: "Automated deployment pipeline with drift detection and rollback capabilities",
+      image: "/images/showcase/argocd-sync.png", 
+      alt: "ArgoCD interface showing successful sync status",
+      icon: "🚀"
+    },
+    {
+      title: "Gitlab DevSecOps Automation",
+      description: "End-to-end CI/CD pipeline that reduced release time from hours to minutes",
+      image: "/images/showcase/gitlab-pipeline.png",
+      alt: "Gitlab DevSecOps Pipeline workflow run with successful deployment",
+      icon: "⚡"
+    }
+  ];
+
+  // Auto-rotate carousel
+  React.useEffect(() => {
+    console.log('Auto-rotation effect running, isPaused:', isPaused);
+    
+    if (isPaused) {
+      console.log('Auto-rotation paused');
+      return;
+    }
+    
+    console.log('Starting auto-rotation interval');
+    const interval = setInterval(() => {
+      console.log('Auto-rotating to next item');
+      setActiveIndex((prev) => (prev + 1) % showcaseItems.length);
+    }, 4000); // Change every 4 seconds
+
+    return () => {
+      console.log('Clearing auto-rotation interval');
+      clearInterval(interval);
+    };
+  }, [isPaused, showcaseItems.length]);
+
+  // Keyboard navigation
+  React.useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        console.log('Left arrow pressed, navigating to previous');
+        setActiveIndex((prev) => (prev - 1 + showcaseItems.length) % showcaseItems.length);
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        console.log('Right arrow pressed, navigating to next');
+        setActiveIndex((prev) => (prev + 1) % showcaseItems.length);
+      } else if (e.key === ' ') {
+        e.preventDefault();
+        setIsPaused(prev => !prev);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [showcaseItems.length]);
+
+  const goToNext = () => {
+    console.log('goToNext called, current index:', activeIndex);
+    setActiveIndex((prev) => (prev + 1) % showcaseItems.length);
+  };
+  const goToPrev = () => {
+    console.log('goToPrev called, current index:', activeIndex);
+    setActiveIndex((prev) => (prev - 1 + showcaseItems.length) % showcaseItems.length);
+  };
+
+  return (
+    <section id="showcase" className="py-20 bg-zinc-950">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+        <SectionHeader 
+          kicker="Proof" 
+          title="Showcase" 
+          subtitle="Visual demonstrations of my work and achievements." 
+        />
+        
+        <div className="relative h-[700px] flex items-center justify-center group">
+          {/* Background depth pattern */}
+          <div className="absolute inset-0 pointer-events-none opacity-20">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(20,184,166,0.1)_0%,transparent_50%)]"></div>
           </div>
-        ))}
+          
+          {/* Depth indicator lines */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute left-1/2 top-20 w-px h-32 bg-gradient-to-b from-teal-400/20 to-transparent"></div>
+            <div className="absolute left-1/2 bottom-20 w-px h-32 bg-gradient-to-t from-teal-400/20 to-transparent"></div>
+          </div>
+          {/* Auto-play indicator */}
+          <div className="absolute top-4 right-4 z-[100]">
+            <motion.button
+              onClick={() => {
+                console.log('Pause/Play button clicked, current state:', isPaused);
+                setIsPaused(prev => !prev);
+              }}
+              onMouseDown={() => console.log('Pause/Play button mouse down')}
+              onTouchStart={() => console.log('Pause/Play button touch start')}
+              className="p-2 rounded-full bg-zinc-800/80 border border-zinc-700 text-zinc-300 hover:text-white hover:bg-zinc-700/80 transition-colors cursor-pointer"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              title={isPaused ? "Resume auto-play" : "Pause auto-play"}
+            >
+              {isPaused ? "▶️" : "⏸️"}
+            </motion.button>
+          </div>
+
+          {/* Navigation arrows */}
+          <motion.button
+            onClick={() => {
+              console.log('Previous button clicked');
+              goToPrev();
+            }}
+            onMouseDown={() => console.log('Previous button mouse down')}
+            onTouchStart={() => console.log('Previous button touch start')}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-[90] p-3 rounded-full bg-zinc-800/80 border border-zinc-700 text-zinc-300 hover:text-white hover:bg-zinc-700/80 transition-colors cursor-pointer"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            title="Previous (←)"
+          >
+            ←
+          </motion.button>
+
+          <motion.button
+            onClick={() => {
+              console.log('Next button clicked');
+              goToNext();
+            }}
+            onMouseDown={() => console.log('Next button mouse down')}
+            onTouchStart={() => console.log('Next button touch start')}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-[90] p-3 rounded-full bg-zinc-800/80 border border-zinc-700 text-zinc-300 hover:text-white hover:bg-zinc-700/80 transition-colors cursor-pointer"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            title="Next (→)"
+          >
+            →
+          </motion.button>
+
+          {/* Showcase cards */}
+          {showcaseItems.map((item, index) => {
+            const isActive = index === activeIndex;
+            const isNext = index === (activeIndex + 1) % showcaseItems.length;
+            const isPrev = index === (activeIndex - 1 + showcaseItems.length) % showcaseItems.length;
+            
+            let zIndex, scale, y, opacity, rotateY, x;
+            
+            if (isActive) {
+              zIndex = 30;
+              scale = 1;
+              y = 0;
+              x = 0;
+              opacity = 1;
+              rotateY = 0;
+            } else if (isNext) {
+              zIndex = 20;
+              scale = 0.85;
+              y = 40;
+              x = 60;
+              opacity = 0.7;
+              rotateY = 15;
+            } else if (isPrev) {
+              zIndex = 20;
+              scale = 0.85;
+              y = 40;
+              x = -60;
+              opacity = 0.7;
+              rotateY = -15;
+            } else {
+              zIndex = 10;
+              scale = 0.7;
+              y = 80;
+              x = 0;
+              opacity = 0.4;
+              rotateY = 0;
+            }
+
+            return (
+              <motion.div
+                key={index}
+                className="absolute inset-0 flex items-center justify-center"
+                style={{ zIndex }}
+                animate={{
+                  scale,
+                  y,
+                  x,
+                  opacity,
+                  rotateY,
+                }}
+                transition={{ 
+                  type: "spring", 
+                  stiffness: 200, 
+                  damping: 25,
+                  duration: 0.6
+                }}
+              >
+                <motion.div
+                  className="w-full max-w-4xl"
+                  whileHover={{ scale: isActive ? 1.02 : 1.05 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                >
+                  <div 
+                    className="rounded-3xl bg-zinc-900/80 border border-zinc-700/50 backdrop-blur-sm p-6 shadow-2xl"
+                    style={{
+                      transform: `perspective(1000px) rotateY(${rotateY}deg)`,
+                    }}
+                  >
+                    <div className="h-80 rounded-2xl bg-zinc-800/70 border border-zinc-700 overflow-hidden mb-4">
+                      {/* Showcase image with fallback */}
+                      <img
+                        src={item.image}
+                        alt={item.alt}
+                        className="h-full w-full object-cover"
+                        onError={(e) => {
+                          // Fallback to placeholder if image fails to load
+                          const el = e.currentTarget;
+                          el.style.display = 'none';
+                          const parent = el.parentElement;
+                          if (parent) {
+                            parent.innerHTML = `
+                              <div class="h-full w-full flex items-center justify-center text-zinc-400">
+                                <div class="text-center">
+                                  <div class="text-6xl mb-4">${item.icon}</div>
+                                  <p class="text-lg">Image not found</p>
+                                  <p class="text-sm text-zinc-500 mt-2">${item.alt}</p>
+                                </div>
+                              </div>
+                            `;
+                          }
+                        }}
+                      />
+                    </div>
+                    <div className="text-center">
+                      <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
+                      <p className="text-zinc-300 text-sm">{item.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Enhanced navigation dots with progress */}
+        <div className="flex justify-center gap-3 mt-8">
+          {showcaseItems.map((_, index) => (
+            <motion.button
+              key={index}
+              className={`w-3 h-3 rounded-full transition-colors ${
+                index === activeIndex ? 'bg-teal-400' : 'bg-zinc-600'
+              }`}
+              onClick={() => setActiveIndex(index)}
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+            />
+          ))}
+        </div>
+
+        {/* Keyboard shortcuts hint */}
+        <div className="text-center mt-4 text-zinc-500 text-sm">
+          <p>Use ← → arrow keys to navigate, spacebar to pause/resume</p>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 // ---------- Blog ----------
 const Blog = () => (
