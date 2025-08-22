@@ -583,16 +583,16 @@ const Testimonials = () => (
       <div className="grid md:grid-cols-3 gap-6">
         {/* Native testimonials */}
         {[
-          {
-            quote:
-              "Hyperion automated our pipeline, reducing release cycles by 70%.",
-            author: "Engineering Manager",
-          },
-          {
-            quote:
-              "Thanks to his monitoring stack, we never miss downtime alerts.",
-            author: "CTO",
-          },
+          // {
+          //   quote:
+          //     "Hyperion automated our pipeline, reducing release cycles by 70%.",
+          //   author: "Engineering Manager",
+          // },
+          // {
+          //   quote:
+          //     "Thanks to his monitoring stack, we never miss downtime alerts.",
+          //   author: "CTO",
+          // },
         ].map((t, i) => (
           <div
             key={i}
