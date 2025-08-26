@@ -123,7 +123,7 @@ const PillButton = ({
 const NavBar = () => (
   <div className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-zinc-900/60 bg-zinc-900/80 border-b border-zinc-800">
           <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <a href="#home" className="font-semibold tracking-tight text-white">Vijay Shukla - DevOps</a>
+        <a href="#home" className="font-semibold tracking-tight text-white">Vijay Shukla</a>
         <nav className="hidden md:flex items-center gap-8 text-zinc-300">
         <a href="#projects" className="hover:text-white">Projects</a>
         <a href="#skills" className="hover:text-white">Skills</a>
