@@ -22,6 +22,7 @@ import {
   LineChart as ReLineChart,
   Line,
 } from "recharts";
+import { FaWhatsapp } from "react-icons/fa";
 
 // ---------- SIMPLE CONFIG (edit these) ----------
 const CONFIG = {
@@ -133,8 +134,10 @@ const NavBar = () => (
       <div className="flex items-center gap-3">
         <a href={CONFIG.github} aria-label="GitHub" className="p-2 rounded-xl hover:bg-zinc-800"><Github className="h-5 w-5" /></a>
         <a href={CONFIG.linkedin} aria-label="LinkedIn" className="p-2 rounded-xl hover:bg-zinc-800"><Linkedin className="h-5 w-5" /></a>
-        <a href={CONFIG.whatsapp}   target="_blank"   rel="noopener noreferrer"   aria-label="WhatsApp"   className="p-2 rounded-xl hover:bg-zinc-800" >   <MessageCircle className="h-5 w-5 text-green-500" /> </a> 
-        <PillButton href="#contact">Hire Me <ArrowRight className="h-4 w-4" /></PillButton>
+        <a href={CONFIG.whatsapp}   target="_blank"   rel="noopener noreferrer"   aria-label="WhatsApp"   className="p-2 rounded-xl hover:bg-zinc-800">
+          <FaWhatsapp className="h-5 w-5 text-green-500" />
+        </a>
+        <PillButton href={CONFIG.email}>Hire Me <ArrowRight className="h-4 w-4" /></PillButton>
         <PillButton href="../Vijay_Shukla_Resume.pdf">   Download Resume <Download className="h-4 w-4" /> </PillButton> 
       </div>
     </div>
@@ -484,9 +487,9 @@ const Skills = () => (
 //   );
 
 //   const kpis = [
-//     { title: "Deploy Frequency (weekly)", value: "30", suffix: " /wk", data: [{x:1,y:12},{x:2,y:18},{x:3,y:22},{x:4,y:28},{x:5,y:30}] },
-//     { title: "MTTR", value: "25", suffix: " min", data: [{x:1,y:40},{x:2,y:35},{x:3,y:28},{x:4,y:25},{x:5,y:22}] },
-//     { title: "Alert Noise", value: "12", suffix: "%", data: [{x:1,y:20},{x:2,y:18},{x:3,y:16},{x:4,y:14},{x:5,y:12}] },
+//     { title: "Deploy Frequency (weekly)", value: "30", suffix: " /wk", data: [{x:1,y=12},{x:2,y=18},{x:3,y=22},{x:4,y=28},{x:5,y=30}] },
+//     { title: "MTTR", value: "25", suffix: " min", data: [{x:1,y=40},{x:2,y=35},{x:3,y=28},{x:4,y=25},{x:5,y=22}] },
+//     { title: "Alert Noise", value: "12", suffix: "%", data: [{x:1,y=20},{x:2,y=18},{x:3,y=16},{x:4,y=14},{x:5,y=12}] },
 //   ];
 
 //   return (
@@ -806,7 +809,9 @@ const Showcase = () => {
 //             <div className="h-32 rounded-2xl bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-800 mb-4" />
 //             <h3 className="text-white font-semibold group-hover:text-teal-300">{p.title}</h3>
 //             <p className="mt-2 text-zinc-400 text-sm">{p.blurb}</p>
-//             <span className="mt-4 inline-flex items-center gap-2 text-teal-300/90 text-sm">Read post <ArrowRight className="h-4 w-4" /></span>
+//             <span className="mt-4 inline-flex items-center gap-2 text-teal-300/90 text-sm font-medium">
+//               <ArrowRight className="h-4 w-4" /> Read post
+//             </span>
 //           </a>
 //         ))}
 //       </div>
@@ -866,7 +871,7 @@ const Testimonials = () => (
         {/* LinkedIn testimonial card */}
         <div className="rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6 hover:border-zinc-700 hover:bg-zinc-900/80 transition">
           <a
-            href="https://www.linkedin.com/posts/abhishek-sinha-53a3aa160_dont-know-if-its-even-legal-recently-activity-7364214351962009600-Rjj1?utm_source=share&utm_medium=member_android&rcm=ACoAADgsKlgBaJpuJGJra0UVSFys5jcP7EwPiYM"
+            href="https://in.linkedin.com/in/vijay-shukla-108745223"
             target="_blank"
             rel="noopener noreferrer"
             className="block"
@@ -891,29 +896,60 @@ const Testimonials = () => (
 );
 
 
+const certificates = [
+  {
+    title: "IBM Cybersecurity Analyst Professional Certificate",
+    image: "/images/certificates/vijayshukla-2XU8WBTMXPHD.jpeg",
+    description: "Earned in 2023. Covers threat intelligence, network security, SIEM, and incident response.",
+    link: "https://www.coursera.org/account/accomplishments/professional-cert/2XU8WBTMXPHD"
+  },
+  // {
+  //   title: "AWS Certified Solutions Architect Associate",
+  //   image: "/images/certificates/aws-solutions-architect.png",
+  //   description: "Validated expertise in designing and deploying scalable AWS systems.",
+  //   link: "https://www.credly.com/badges/aws-solutions-architect-associate"
+  // },
+  // Add more certificates as needed
+];
+
 const AwardsCerts = () => (
   <section className="py-16 bg-zinc-950/95 border-t border-zinc-800">
     <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
       <SectionHeader kicker="Recognition" title="Awards & Certifications" />
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-6 mb-10">
         <div className="rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6">
           <h4 className="text-white font-medium mb-2">Awards</h4>
           <ul className="text-zinc-300 text-sm list-disc ml-5 space-y-1">
             <li>Customer Delight Award for successful PoCs and client satisfaction.</li>
           </ul>
         </div>
-        <div className="rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6">
-          <h4 className="text-white font-medium mb-2">Certifications</h4>
-          <ul className="text-zinc-300 text-sm list-disc ml-5 space-y-1">
-            <li>IBM Cybersecurity Analyst Professional Certificate (2023)</li>
-          </ul>
-        </div>
+      </div>
+      {/* Certificates Gallery */}
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        {certificates.map((cert, i) => (
+          <a
+            key={i}
+            href={cert.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block rounded-3xl border border-zinc-800 bg-zinc-900/60 p-4 hover:border-teal-400 hover:shadow-lg transition"
+          >
+            <div className="h-40 w-full rounded-xl overflow-hidden bg-zinc-800 flex items-center justify-center mb-4">
+              <img
+                src={cert.image}
+                alt={cert.title}
+                className="object-contain h-full w-full"
+                onError={e => { e.currentTarget.style.display = 'none'; }}
+              />
+            </div>
+            <h5 className="text-white font-semibold mb-2 text-base group-hover:text-teal-300">{cert.title}</h5>
+            <p className="text-zinc-400 text-sm">{cert.description}</p>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 );
-
-
 
 // ---------- Contact & Footer ----------
 // const Contact = () => (
@@ -931,17 +967,17 @@ const Contact = () => (
   <section id="contact" className="py-20 bg-zinc-950/95 border-t border-zinc-800">
     <div className="max-w-5xl mx-auto px-4 md:px-6 lg:px-8 text-center">
       <SectionHeader kicker="Let’s Talk" title="Ready to scale your infrastructure with confidence?" subtitle="Tell me about your challenges. I’ll bring the automation, reliability, and speed." />
-              <div className="flex flex-wrap items-center justify-center gap-3">
-          <PillButton href={CONFIG.email}><Mail className="h-4 w-4" /> Email Me</PillButton>
-          <a
-            href={CONFIG.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-2xl px-5 py-2.5 text-sm font-medium transition bg-teal-500/90 hover:bg-teal-400 text-zinc-900"
-          >
-            <MessageCircle className="h-4 w-4" /> WhatsApp Me
-          </a>
-        </div>
+      <div className="flex flex-wrap items-center justify-center gap-3">
+        <PillButton href={CONFIG.email}><Mail className="h-4 w-4" /> Email Me</PillButton>
+        <a
+          href={CONFIG.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-2xl px-5 py-2.5 text-sm font-medium transition bg-teal-500/90 hover:bg-teal-400 text-zinc-900"
+        >
+          <FaWhatsapp className="h-5 w-5 text-green-500" /> WhatsApp Me
+        </a>
+      </div>
 
              {/* Service Availability Cards */}
        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -996,7 +1032,9 @@ const Footer = () => (
         <span>•</span>
         <a href={CONFIG.linkedin} className="hover:text-white">LinkedIn</a>
         <span>•</span>
-        <a href={CONFIG.whatsapp} className="hover:text-white">WhatsApp</a>
+        <a href={CONFIG.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-green-500 flex items-center gap-1">
+          WhatsApp
+        </a>
         {/* <span>•</span> */}
         {/* <a href="#blog" className="hover:text-white">Blog</a> */}
       </div>
