@@ -871,7 +871,7 @@ const Testimonials = () => (
         {/* LinkedIn testimonial card */}
         <div className="rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6 hover:border-zinc-700 hover:bg-zinc-900/80 transition">
           <a
-            href="https://in.linkedin.com/in/vijay-shukla-108745223"
+            href="https://www.linkedin.com/posts/thinksys-inc_employeerecognition-devops-automation-activity-7374064774873014272-9KfY?utm_source=share&utm_medium=member_desktop&rcm=ACoAADgsKlgBaJpuJGJra0UVSFys5jcP7EwPiYM"
             target="_blank"
             rel="noopener noreferrer"
             className="block"
