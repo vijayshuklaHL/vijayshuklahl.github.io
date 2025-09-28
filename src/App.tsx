@@ -1,4 +1,44 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
+function useTypewriter(words: string[], typeSpeed = 80, eraseSpeed = 40, delay = 1200) {
+  const [wordIndex, setWordIndex] = useState(0);
+  const [displayed, setDisplayed] = useState("");
+  const [isErasing, setIsErasing] = useState(false);
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    const currentWord = words[wordIndex];
+
+    if (!isErasing && displayed.length < currentWord.length) {
+      timeout = setTimeout(() => {
+        setDisplayed(currentWord.slice(0, displayed.length + 1));
+      }, typeSpeed);
+    } else if (!isErasing && displayed.length === currentWord.length) {
+      timeout = setTimeout(() => {
+        setIsErasing(true);
+      }, delay);
+    } else if (isErasing && displayed.length > 0) {
+      timeout = setTimeout(() => {
+        setDisplayed(currentWord.slice(0, displayed.length - 1));
+      }, eraseSpeed);
+    } else if (isErasing && displayed.length === 0) {
+      timeout = setTimeout(() => {
+        setIsErasing(false);
+        setWordIndex((i) => (i + 1) % words.length);
+      }, typeSpeed);
+    }
+    return () => clearTimeout(timeout);
+  }, [displayed, isErasing, wordIndex, words, typeSpeed, eraseSpeed, delay]);
+
+  return displayed;
+}
+
+function TypewriterWords() {
+  const word = useTypewriter(["Architecting", "Automating", "Securing"], 140, 80, 1800);
+  return (
+    <span className="text-teal-400 mr-2" style={{ minWidth: "10ch", display: "inline-block" }}>{word}<span className="animate-pulse">_</span></span>
+  );
+}
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -155,15 +195,17 @@ const Hero = () => (
           <span className="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-xs">DevSecOps</span>
           <span className="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-xs">CI/CD</span>
           <span className="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-xs">Cloud</span>
+          <span className="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-xs">On-Premise</span>
+          <span className="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-xs">SysAdmin</span>
+          <span className="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-xs">SRE</span>
           <span className="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-xs">Security</span>
           <span className="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-xs">Observability</span>
         </div>
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">
-          I design, automate, <br /> and secure large-scale cloud infrastructures.
+          <TypewriterWords /> infrastructure—cloud, on-prem, or anywhere teams need reliability and speed.
         </h1>
         <p className="text-zinc-400 text-lg mb-8">
-          From 50+ iOS apps shipped to TestFlight via fully automated pipelines
-          to centralized monitoring stacks that never miss a heartbeat — I help teams scale with confidence.
+          From cloud-native platforms to on-premises networks, I deliver resilient, secure, and automated solutions tailored to any environment. My work spans AWS, VPNs, CI/CD, secure collaboration, and more—empowering organizations to scale with confidence.
         </p>
         <div className="flex flex-wrap gap-4">
           <a href="#projects" className="px-6 py-3 rounded-2xl bg-teal-500/90 hover:bg-teal-400 text-zinc-900 font-medium inline-flex items-center gap-2">
