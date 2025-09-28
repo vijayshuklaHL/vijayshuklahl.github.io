@@ -360,6 +360,36 @@ const projects: Project[] = [
     image: "/images/projects/vault-multicluster.png",
     alt: "Vault UI with Kubernetes/JWT auth method",
   },
+    {
+      title: "AWS Backup & Control Tower Centralization",
+      challenge: "Multi-account AWS environments lacked unified backup and compliance.",
+      solution: "Centralized AWS Backup strategy integrated with Control Tower, automated OU-level and tag-based policies, resolved KMS/IAM issues.",
+      impact: "Improved governance, resilience, and compliance posture across AWS Organization.",
+      tags: ["AWS Backup", "Control Tower", "KMS", "IAM", "Automation"],
+      href: "#case-backup-control-tower",
+      image: "/images/projects/aws-backup.png", // Placeholder, update if you have a specific image
+      alt: "AWS Backup and Control Tower centralization diagram",
+    },
+    {
+      title: "Networking & VPN Automation (Netmaker, NordLayer, WireGuard)",
+      challenge: "Hybrid environments needed secure, scalable networking and private connectivity.",
+      solution: "Deployed Netmaker for peer-to-peer networking, integrated NordLayer gateways, implemented WireGuard clients for high-performance tunneling.",
+      impact: "Strengthened network security, private connectivity, and observability across distributed systems.",
+      tags: ["Netmaker", "NordLayer", "WireGuard", "VPN", "Networking"],
+      href: "#case-networking-vpn",
+      image: "/images/projects/networking-vpn.png", // Placeholder, update if you have a specific image
+      alt: "Networking and VPN automation architecture diagram",
+    },
+    {
+      title: "Secure Collaboration Platform Deployment (Rocket.Chat + Cloudflare WAF)",
+      challenge: "Internal teams required a secure, compliant chat platform with zero direct internet exposure.",
+      solution: "Deployed Rocket.Chat in private network, integrated Cloudflare Tunnel with WAF/DDoS protection, enabled encryption and retention policies.",
+      impact: "Delivered a compliant, highly secure collaboration solution for internal teams.",
+      tags: ["Rocket.Chat", "Cloudflare", "WAF", "DevSecOps", "Zero Trust"],
+      href: "#case-secure-collab",
+      image: "/images/projects/rocket-chat.png", // Placeholder, update if you have a specific image
+      alt: "Rocket.Chat deployment with Cloudflare WAF and secure access",
+    },
 ];
 
 const Projects = () => (
