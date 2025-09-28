@@ -878,7 +878,7 @@ const Testimonials = () => (
           >
             {/* Screenshot preview of LinkedIn post (save screenshot as /images/linkedin-testimonial.png) */}
             <img
-              src="/images/linkedin-testimonial.png"
+              src="/images/showcase/linkedin-testimonial.png"
               alt="LinkedIn testimonial preview"
               className="rounded-xl mb-3 border border-zinc-800"
             />
