@@ -201,8 +201,8 @@ const Hero = () => (
           <span className="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-xs">Security</span>
           <span className="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-xs">Observability</span>
         </div>
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">
-          <TypewriterWords /> infrastructure—cloud, on-prem, or anywhere teams need reliability and speed.
+        <h1 className="text-4xl md:text-4xl font-bold tracking-tight text-white mb-6">
+          <TypewriterWords />across cloud, on-premise, and hybrid environments - so teams move faster and safer.
         </h1>
         <p className="text-zinc-400 text-lg mb-8">
           From cloud-native platforms to on-premises networks, I deliver resilient, secure, and automated solutions tailored to any environment. My work spans AWS, VPNs, CI/CD, secure collaboration, and more—empowering organizations to scale with confidence.
