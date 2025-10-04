@@ -448,7 +448,7 @@ const Projects = () => (
             key={i}
             href={p.href}
             whileHover={{ y: -4 }}
-            className="group rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6 hover:border-zinc-700 hover:bg-zinc-900/80 transition shadow-lg"
+            className="group rounded-3xl border-2 border-teal-500/40 bg-zinc-800/80 p-6 hover:border-teal-400 hover:bg-zinc-800/90 transition shadow-xl shadow-teal-900/30"
           >
             {/* Media per-project with graceful fallback */}
             <div className="h-36 w-full rounded-2xl border border-zinc-800 mb-4 overflow-hidden bg-gradient-to-br from-zinc-800 to-zinc-900">
@@ -499,7 +499,7 @@ const Skills = () => (
           { name: "Observability", items: ["Prometheus", "Grafana", "Loki", "Promtail", "CloudWatch", "Alertmanager"] },
           { name: "Security & DevSecOps", items: ["Vault", "KMS", "RBAC", "IAM Policies", "CIS Basics"] },
         ].map((col) => (
-          <div key={col.name} className="group relative rounded-3xl bg-zinc-900/60 border border-zinc-800 p-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] overflow-hidden">
+          <div key={col.name} className="group relative rounded-3xl bg-zinc-800/80 border-2 border-teal-500/40 p-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_24px_rgba(20,184,166,0.18)] overflow-hidden shadow-xl shadow-teal-900/30">
             {/* Shine effect */}
             <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
 
@@ -801,7 +801,7 @@ const Showcase = () => {
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 >
                   <div 
-                    className="rounded-3xl bg-zinc-900/80 border border-zinc-700/50 backdrop-blur-sm p-6 shadow-2xl"
+                    className="rounded-3xl bg-zinc-800/80 border-2 border-teal-500/40 backdrop-blur-sm p-6 shadow-xl shadow-teal-900/30"
                     style={{
                       transform: `perspective(1000px) rotateY(${rotateY}deg)`,
                     }}
@@ -933,7 +933,7 @@ const Testimonials = () => (
         ].map((t, i) => (
           <div
             key={i}
-            className="rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6 hover:border-zinc-700 hover:bg-zinc-900/80 transition"
+            className="rounded-3xl border-2 border-teal-500/40 bg-zinc-800/80 p-6 hover:border-teal-400 hover:bg-zinc-800/90 hover:shadow-xl transition shadow-xl shadow-teal-900/30"
           >
             <p className="text-zinc-200">“{t.quote}”</p>
             <p className="mt-4 text-zinc-400 text-sm">— {t.author}</p>
@@ -941,7 +941,7 @@ const Testimonials = () => (
         ))}
 
         {/* LinkedIn testimonial card */}
-        <div className="rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6 hover:border-zinc-700 hover:bg-zinc-900/80 transition">
+  <div className="rounded-3xl border-2 border-teal-500/40 bg-zinc-800/80 p-6 hover:border-teal-400 hover:bg-zinc-800/90 hover:shadow-xl transition shadow-xl shadow-teal-900/30">
           <a
             href="https://www.linkedin.com/posts/thinksys-inc_employeerecognition-devops-automation-activity-7374064774873014272-9KfY?utm_source=share&utm_medium=member_desktop&rcm=ACoAADgsKlgBaJpuJGJra0UVSFys5jcP7EwPiYM"
             target="_blank"
@@ -989,7 +989,7 @@ const AwardsCerts = () => (
     <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
       <SectionHeader kicker="Recognition" title="Awards & Certifications" />
       <div className="grid md:grid-cols-2 gap-6 mb-10">
-        <div className="rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6">
+  <div className="rounded-3xl border-2 border-teal-500/40 bg-zinc-800/80 p-6 shadow-xl shadow-teal-900/30">
           <h4 className="text-white font-medium mb-2">Awards</h4>
           <ul className="text-zinc-300 text-sm list-disc ml-5 space-y-1">
             <li>Customer Delight Award for successful PoCs and client satisfaction.</li>
@@ -1004,7 +1004,7 @@ const AwardsCerts = () => (
             href={cert.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="group block rounded-3xl border border-zinc-800 bg-zinc-900/60 p-4 hover:border-teal-400 hover:shadow-lg transition"
+            className="group block rounded-3xl border-2 border-teal-500/40 bg-zinc-800/80 p-4 hover:border-teal-400 hover:shadow-xl hover:bg-zinc-800/90 transition shadow-xl shadow-teal-900/30"
           >
             <div className="h-40 w-full rounded-xl overflow-hidden bg-zinc-800 flex items-center justify-center mb-4">
               <img
@@ -1079,7 +1079,7 @@ const Contact = () => (
              icon: "🚀"
            }
          ].map((service, i) => (
-           <div key={i} className="group relative rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] overflow-hidden">
+           <div key={i} className="group relative rounded-3xl border-2 border-teal-500/40 bg-zinc-800/80 p-6 transition-all duration-300 hover:scale-105 hover:border-teal-400 hover:bg-zinc-800/90 hover:shadow-[0_0_24px_rgba(20,184,166,0.18)] overflow-hidden shadow-xl shadow-teal-900/30">
              {/* Shine effect */}
              <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
              <div className="relative z-10 text-center">
