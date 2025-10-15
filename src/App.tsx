@@ -68,7 +68,7 @@ import { FaWhatsapp } from "react-icons/fa";
 const CONFIG = {
   github: "https://github.com/vijayshuklaHL",
   linkedin: "https://in.linkedin.com/in/vijay-shukla-108745223",
-  email: "mailto:vijayshukla-ops@gmail.com",
+  email: "mailto:vijayshukla8416@gmail.com",
   whatsapp: "https://wa.me/+918416992273",
   profileImg: "/images/profile.jpg",
   workshopImg: "/images/workshop.jpg",
